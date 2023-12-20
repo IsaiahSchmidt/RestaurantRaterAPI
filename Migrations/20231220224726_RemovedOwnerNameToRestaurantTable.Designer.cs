@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RestaurantRaterAPI.Data;
 
@@ -10,9 +11,11 @@ using RestaurantRaterAPI.Data;
 namespace RestaurantRaterAPI.Migrations
 {
     [DbContext(typeof(RestaurantDbContext))]
-    partial class RestaurantDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231220224726_RemovedOwnerNameToRestaurantTable")]
+    partial class RemovedOwnerNameToRestaurantTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,40 +49,6 @@ namespace RestaurantRaterAPI.Migrations
                     b.HasIndex("RestaurantId");
 
                     b.ToTable("Ratings");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CleanlinessScore = 10.0,
-                            EnvironmentScore = 8.8000000000000007,
-                            FoodScore = 7.5,
-                            RestaurantId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CleanlinessScore = 9.9000000000000004,
-                            EnvironmentScore = 9.8000000000000007,
-                            FoodScore = 8.5,
-                            RestaurantId = 1
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CleanlinessScore = 10.0,
-                            EnvironmentScore = 5.7999999999999998,
-                            FoodScore = 3.5,
-                            RestaurantId = 2
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CleanlinessScore = 7.0,
-                            EnvironmentScore = 6.7999999999999998,
-                            FoodScore = 6.5,
-                            RestaurantId = 2
-                        });
                 });
 
             modelBuilder.Entity("RestaurantRaterAPI.Data.Restaurant", b =>
@@ -103,20 +72,6 @@ namespace RestaurantRaterAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Restaurants");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Address = "1Up Lane",
-                            Name = "Super Mario Pasta Cavern"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Address = "123 GRRR CT",
-                            Name = "Bowsers Hot Chili Shop"
-                        });
                 });
 
             modelBuilder.Entity("RestaurantRaterAPI.Data.Rating", b =>

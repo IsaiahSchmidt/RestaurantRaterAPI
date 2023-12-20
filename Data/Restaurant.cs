@@ -18,7 +18,9 @@ namespace RestaurantRaterAPI.Data
 
 
         [Required, MaxLength(100)] // attributes can go in the same brackets
-        public string Location { get; set; } = string.Empty;
+        public string Address { get; set; } = string.Empty;
+
+        // public string OwnerName {get; set;} = string.Empty;
 
         public List<Rating> Ratings { get; set; } = new List<Rating>();
         public double Rating
