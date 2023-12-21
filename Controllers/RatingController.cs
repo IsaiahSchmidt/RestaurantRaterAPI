@@ -80,11 +80,11 @@ namespace RestaurantRaterAPI.Controllers
                         ratingInDb.FoodScore = model.FoodScore;
 
                         await _context.SaveChangesAsync();
-                        return Ok("successfully updated");
+                        return Ok("rating successfully updated");
                     } 
                 }
             }
-            return BadRequest("could not be updated");
+            return BadRequest("rating could not be updated");
         }
 
         [HttpDelete]
@@ -101,10 +101,10 @@ namespace RestaurantRaterAPI.Controllers
                 {
                     _context.Ratings.Remove(ratingInDb);
                     await _context.SaveChangesAsync();
-                    return Ok("successfully deleted");
+                    return Ok("rating successfully deleted");
                 }
             }
-            return BadRequest("could not be deleted");
+            return BadRequest("rating could not be deleted");
         }
     }
 }

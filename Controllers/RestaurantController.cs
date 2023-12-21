@@ -31,7 +31,7 @@ public class RestaurantController : ControllerBase
             Rating = r.Rating
         }).ToList();
 
-        return Ok(restaurants);
+        return Ok(restaurantListItems);
     }
 
     [HttpGet]
